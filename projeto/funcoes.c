@@ -66,11 +66,13 @@ void cadastrarPedido(int idUsuario) {
         printf("1. Buscar e adicionar alimento\n");
         printf("2. Remover alimento da sacola\n");
         printf("3. Ver itens da sacola\n");
-        printf("4. Confirmar pedido\n");
+        printf("4. Editar um pedido específico\n");
+        printf("5. Confirmar pedido\n");
         printf("0. Voltar\n");
         printf("Escolha: ");
         scanf("%d", &opcao);
 
+        // Adiciona um item da sacola.
         if (opcao == 1) {
             FILE *file = fopen("data/alimentos.txt", "r"); // Abrimos alimentos.txt em formato de leitura.
             if (!file) {
@@ -98,6 +100,7 @@ void cadastrarPedido(int idUsuario) {
                 printf(" Alimento não encontrado.\n");
         }
 
+        // Remove um item da sacola
         else if (opcao == 2) {
             if (qtd == 0) { // Aqui percebemos a importânica do valor da quantidade, caso demarcado como zero o código sempre irá retornar como vazio.
                 printf("Sacola vazia.\n");
@@ -123,6 +126,7 @@ void cadastrarPedido(int idUsuario) {
             }
         }
 
+        // Exibe os itens da sacola.
         else if (opcao == 3) {
             if (qtd == 0) { // Mesma normã da quantidade.
                 printf("Sacola vazia.\n");
@@ -138,7 +142,54 @@ void cadastrarPedido(int idUsuario) {
             printf("Total: R$ %.2f\n", total);
         }
 
-        else if (opcao == 4) {
+        // Edita pedido.
+        else if(opcao == 4){
+            if(qtd == 0){
+                printf("Sacola vazia.\n"); // Mesma normã da quantidade.
+                continue;
+            }
+
+            printf("\n--- Itens na sacola ---\n");
+            for(int i = 0; i < qtd; i++){ // Laço para exibir os itens da sacola.
+                printf("%d. %s (R$ %.2f)\n", i + 1, sacola[i].nome, sacola[i].preco);
+            }
+
+            int editar; // Armazenamos uma variável para edição do índice.
+            printf("Digite o número do item a editar: ");
+            scanf("%d", &editar);
+            editar--; // Edição decrementa enquanto for verdade.
+
+            if(editar >= 0 && editar < qtd){
+                Alimento a; // Definimos a tabela Alimento como "a".
+                FILE *file = fopen("data/alimentos.txt", "r"); // Abrimos alimentos.txt em formato de leitura.
+                if(!file){
+                    printf("Erro ao abrir alimentos.txt\n"); // Retorno padrão em relação ao erro com abrir o arquivo.
+                    return;
+                }
+
+                char busca[50]; // Criamos um array com 50 indices as quais irão armazenar os valores de busca.
+                printf("Digite o novo nome do alimento: ");
+                scanf(" %[^\n]", busca); // Irá ler para todo arranjo até /n
+                int encontrado = 0; // Armazenamos um contador que também deve sempre iniciar como 0.
+
+                while(fscanf(file, "%d;%[^;];%[^;];%f\n", &a.id, a.nome, a.categoria, &a.preco) == 4){ // Normã padrão para verificar os valores dentro do arquivo apontado.
+                    if(_stricmp(a.nome, busca) == 0){ // Compara se o nome do alimento é igual o que está armazenado em busca.
+                        printf("Item editado para: %s (R$ %.2f)\n", a.nome, a.preco);
+                        sacola[editar] = a; // Retornamos o novo alimento no índice selecionado.
+                        encontrado = 1; // Valor do contador marcado como TRUE, portanto:
+                        break; // Encerra o loop.
+                    }
+                }
+                fclose(file);
+                if(!encontrado) // Normã padrão para caso o valor do contador retorne como FALSE.
+                    printf(" Alimento não encontrado.\n");
+            } else {
+                printf("Índice inválido.\n");
+            }
+        }
+
+        // Confirma pedido.
+        else if (opcao == 5) {
             if (qtd == 0) { // Mesma normã de quantidade.
                 printf("Você precisa adicionar pelo menos um alimento.\n");
                 continue;
