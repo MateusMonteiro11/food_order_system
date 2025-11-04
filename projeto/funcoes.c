@@ -85,7 +85,7 @@ void cadastrarPedido(int idUsuario) {
             printf("\nDigite o nome do alimento: ");
             scanf(" %[^\n]", busca); // Irá ler para todo arranjo até /n
 
-            while (fscanf(file, "%d;%49[^;];%49[^;];%f\n", &a.id, a.nome, a.categoria, &a.preco) == 4) { // Normã padrão para verificar os valores dentro do arquivo apontado.
+            while (fscanf(file, "%d;%[^;];%[^;];%f\n", &a.id, a.nome, a.categoria, &a.preco) == 4) { // Normã padrão para verificar os valores dentro do arquivo apontado.
                 if (_stricmp(a.nome, busca) == 0) { // Compara se o nome do alimento é igual o que está armazenado em busca.
                     printf("Adicionado: %s (R$ %.2f)\n", a.nome, a.preco);
                     sacola[qtd++] = a; // Retornamos um incremento no valor da sacola.
