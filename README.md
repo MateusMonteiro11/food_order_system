@@ -63,7 +63,7 @@ Cada interação gera registros persistentes em arquivos `.txt`, funcionando com
 
 ## 🧩 Estrutura do Projeto
 
-## 📁 food_order_system
+## 📁 projeto
 - ├── main.c # Função principal e menu do sistema
 - ├── funcoes.c # Implementação das funcionalidades principais
 - ├── funcoes.h # Estruturas e protótipos das funções
