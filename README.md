@@ -50,6 +50,7 @@ Cada interação gera registros persistentes em arquivos `.txt`, funcionando com
  - Adicionar alimento
  - Remover alimento
  - Ver itens da sacola
+ - Edita os itens da sacola
  - Confirmar pedido
 2. Busca alimentos em `alimentos.txt` comparando nomes com `strcasecmp()`.
 3. Armazena os itens da sacola em um array de `Alimento`.
