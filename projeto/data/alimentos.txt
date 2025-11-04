@@ -1,0 +1,28 @@
+1;Hamburguer;Lanche;25.90
+2;Pizza;Italiana;45.00
+3;Suco de Laranja;Bebida;8.50
+4;Sushi;Japonesa;55.00
+5;Açaí;Sobremesa;18.00
+6;Coxinha;Salgado;6.00
+7;Lasanha;Massas;35.00
+8;Refrigerante;Bebida;7.00
+9;Pão de Queijo;Lanche;5.50
+10;Brigadeiro;Sobremesa;3.00
+11;Feijoada;Brasileira;42.00
+12;Tapioca;Café da Manhã;7.50
+13;Salada César;Salada;22.00
+14;Camarão ao Alho e Óleo;Frutos do Mar;48.00
+15;Panqueca;Sobremesa;12.00
+16;Quiche de Alho-Poró;Vegetariana;18.00
+17;Crepe de Nutella;Sobremesa;14.00
+18;Filé Mignon;Prato Principal;60.00
+19;Frango à Parmegiana;Prato Principal;39.00
+20;Batata Frita;Acompanhamento;12.00
+21;Omelete;Café da Manhã;11.00
+22;Smoothie de Morango;Bebida;12.50
+23;Caldinho de Feijão;Petisco;8.00
+24;Espaguete ao Alho e Óleo;Massas;28.00
+25;Wrap de Frango;Lanche;19.00
+26;Risoto de Funghi;Massas;40.00
+27;Mousse de Maracujá;Sobremesa;9.00
+28;Churrasco;Brasileira;65.00
